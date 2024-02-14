@@ -1,7 +1,6 @@
 import "./CSS/Cards.css"
 const Cards=(props)=>{
-   
-    const {data}=props;
+   const {data}=props;
     return (
 
     <div class="card">

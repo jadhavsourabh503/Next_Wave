@@ -3,7 +3,7 @@ import NumberList from "./NumberList"
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-const List=()=>{
+const Update=()=>{
 
     const [stats, setStats]=useState();
     const [list1, setList1]=useState();
@@ -13,8 +13,9 @@ const List=()=>{
     alert("hello world");
     },[]);
     
-         async function fnCall(){
-            var response=await axios.get("https://apis.ccbp.in/list-creation/lists");
+         function fnCall(){
+            axios.get("https://apis.ccbp.in/list-creation/lists")
+            .then((response)=>{
                 var lit=response.data;
                 setStats(lit.lists);
                 console.log(stats)
@@ -25,6 +26,11 @@ const List=()=>{
              setList1(list11)
              setList2(list21)
              console.log(list1,"  ",list2)
+             return 
+            })
+            .catch((response) => {
+                alert(response)
+             });
          };
          var numberlist=[list1,list2];
          console.log(numberlist)
@@ -34,15 +40,16 @@ const List=()=>{
     <div className="container">
             <div className="row">
                 
-            {
+              {
                 numberlist.map((data,id)=>{
                     return <NumberList data={data} key={id} numberlist={id}/>
                 })
               }
+                
           
             </div>
         </div>
     )
 }
 
-export default List
+export default Update;

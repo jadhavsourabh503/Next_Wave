@@ -1,12 +1,12 @@
 import { init } from "../init/init";
-const appReducers=(state=init, action)=>{
+function appReducers(state=init, action){
     switch(action.type){
-        case "1":
+        case "CREATE_LIST":
             return {
                 ...state,
-                datas:action.payload
+                creatList:action.payload
+
             }
     }
 }
-
 export default appReducers;
