@@ -6,18 +6,12 @@ import {  useSelector } from "react-redux";
 
 const List=()=>{
     useEffect(()=>{
-            alert("hello world");
             fnCall();
         },[]);
     const loadData=useSelector(state=>state.user)
     
-    const stats=loadData.lists;
-    console.log(stats);
-    const list1 = stats.filter((item) => item.list_number === 1);
-    const list2 = stats.filter(item => item.list_number === 2);
-    var numberlist=[list1,list2];
-
- 
+    console.log(loadData);
+    
     
           function fnCall(){
             oseActions();
@@ -31,7 +25,7 @@ const List=()=>{
             <div className="row">
                 
             {
-                numberlist.map((data,id)=>{
+                loadData.map((data,id)=>{
                     return <NumberList data={data} key={id} numberlist={id}/>
                 })
               }

@@ -5,7 +5,6 @@ import './CSS/Number.css'
 
 const NumberList=(props)=>{
     useEffect(()=>{
-        alert("hello worls?");
     },[])
     const {data,numberlist}=props;
 
@@ -13,6 +12,7 @@ const NumberList=(props)=>{
         let checkdData=even.target.value;
         console.log(checkdData);
     }
+    
     return (
         <div className="col-md-4"  style={{ height: '547px', overflow: 'auto' }}>
          <div> <h5>List ({1+numberlist})</h5> <input type="checkbox" value={data} onChange={fnChange}/></div>  
