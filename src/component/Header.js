@@ -1,11 +1,9 @@
 const Header=()=>{
-    function fnCreate(){
-
-    }
+    
     return (
         <div>
             <h1>List Creation</h1>
-            <button>create a new list</button>
+            <button className="btn btn-primary">create a new list</button>
         </div>
     )
 }

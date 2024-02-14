@@ -8,10 +8,14 @@ const NumberList=(props)=>{
         alert("hello worls?");
     },[])
     const {data,numberlist}=props;
-    console.log(props)
+
+    const fnChange=(even)=>{
+        let checkdData=even.target.value;
+        console.log(checkdData);
+    }
     return (
         <div className="col-md-4"  style={{ height: '547px', overflow: 'auto' }}>
-         <div> <h5>List ({1+numberlist})</h5> <input type="checkbox"/></div>  
+         <div> <h5>List ({1+numberlist})</h5> <input type="checkbox" value={data} onChange={fnChange}/></div>  
             {
                 data.map((itms,id)=>{
                     return <Cards data={itms} key={id} />

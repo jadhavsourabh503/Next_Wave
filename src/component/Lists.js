@@ -1,33 +1,29 @@
 import React from "react"
 import NumberList from "./NumberList"
-import { useEffect, useState } from "react";
-import axios from "axios";
+import { useEffect } from "react";
+import { oseActions } from "./actions/loadApi";
+import {  useSelector } from "react-redux";
 
 const List=()=>{
-
-    const [stats, setStats]=useState();
-    const [list1, setList1]=useState();
-    const [list2, setList2]=useState();
-   useEffect(()=>{
-    fnCall();
-    alert("hello world");
-    },[]);
+    useEffect(()=>{
+            alert("hello world");
+            fnCall();
+        },[]);
+    const loadData=useSelector(state=>state.user)
     
-         async function fnCall(){
-            var response=await axios.get("https://apis.ccbp.in/list-creation/lists");
-                var lit=response.data;
-                setStats(lit.lists);
-                console.log(stats)
+    const stats=loadData.lists;
+    console.log(stats);
+    const list1 = stats.filter((item) => item.list_number === 1);
+    const list2 = stats.filter(item => item.list_number === 2);
+    var numberlist=[list1,list2];
 
-             const list11 = stats.filter((item) => item.list_number === 1);
-             const list21 = stats.filter(item => item.list_number === 2);
-             console.log(list11)
-             setList1(list11)
-             setList2(list21)
-             console.log(list1,"  ",list2)
+ 
+    
+          function fnCall(){
+            oseActions();
+           
          };
-         var numberlist=[list1,list2];
-         console.log(numberlist)
+        
         
         
     return (
